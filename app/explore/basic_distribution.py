@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
-from setup import expedia_path
+test_path = "../../../data/test.csv.gz"
 
-print(expedia_path)
 
+df = pd.read_csv(test_path, compression="gzip")
 
