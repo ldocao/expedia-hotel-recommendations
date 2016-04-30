@@ -2,10 +2,8 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-data_expedia = pd.read_csv("../../../data_expedia/train_etienne.csv")#, nrows=1000000)
+data_expedia = pd.read_csv("../../../data_expedia/train_etienne.csv")
 
-#for variable in data_expedia.columns :
-#	print(variable)
 
 for i in range(len(data_expedia.columns)):
 	if data_expedia.dtypes[i] != 'object' :
@@ -18,7 +16,3 @@ for i in range(len(data_expedia.columns)):
 		except ValueError:
 			print("Line "+str(i)+" skipped")
 			pass
-#	print(data_expedia.columns[i])
-#	print(data_expedia.dtypes[i])
-
-
