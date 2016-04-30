@@ -2,7 +2,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-data_expedia = pd.read_csv("../../../data/train_etienne.csv")#, nrows=10)
+data_expedia = pd.read_csv("../../../train_etienne.csv")#, nrows=10)
 
 
 for i in [1,2,3,4,5,7,8,9,10,16,17,18,20,21,22,23] :
