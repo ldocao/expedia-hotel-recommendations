@@ -9,7 +9,7 @@ destination = data_dir + "train_final.csv"
 
 
 ## perform operations
-data_expedia = pd.read_csv(source, nrows=1000)
+data_expedia = pd.read_csv(source)
 data_expedia = convert_dtypes.pseudo_numerics_to_string(data_expedia)
 data_expedia["stay_duration"] = data_expedia.apply(lambda row: between_date(row["srch_ci"], row["srch_co"]), axis=1)
 data_expedia["time_to_travel"] = data_expedia.apply(lambda row: between_datetime(row["date_time"], row["srch_ci"]), axis=1)
