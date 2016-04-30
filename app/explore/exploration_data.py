@@ -7,5 +7,6 @@ data_expedia = pd.read_csv("../../../data_expedia/train_etienne.csv", nrows=1000
 regions=data_expedia['user_location_region']
 
 sns.distplot(regions)
+plt.title("Histogramme des origines geographiques")
 plt.savefig('plot_regions.pdf')
 
