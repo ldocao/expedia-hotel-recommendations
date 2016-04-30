@@ -2,7 +2,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-data_expedia = pd.read_csv("../../../data_expedia/train_etienne.csv")
+data_expedia = pd.read_csv("../../../data/train_etienne.csv")
 
 
 for i in range(len(data_expedia.columns)):
