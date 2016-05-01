@@ -10,39 +10,20 @@ import random
 
 
 # Load Database
-df=pd.read_csv("train_target.csv").dropna()
+df = pd.read_csv("../../../data/train_target.csv", nrows=10000)
 
-#features=df[["srch_adults_cnt"]]
+# features = df[["time_to_travel","stay_duration"]]
+# target = df["appetence"]
 
-features=df[["orig_destination_distance", #variable to normalize
-				"srch_adults_cnt",
-				"srch_children_cnt",
-				"srch_rm_cnt",
-				"time_to_travel",
-				"stay_duration",
-				"is_mobile",
-				"is_package"]]
-features_norm = (features-features.mean())/features.std()
+# features_train = features.iloc[0:1500].values
+# target_train = target.iloc[0:1500].values
+# features_test = features.iloc[1501:]
+# target_test = target.iloc[1501:]
 
-target=df["appetence"]
+# reg = linear_model.LinearRegression()
+# reg.fit(features_train, target_train)
 
-features_train, features_test, target_train, target_test = train_test_split(features_norm, target, test_size=0.2, random_state=1)
+# print('Coefficients: \n', reg.coef_)  
 
+# target_test_predicted = reg.predict(features_test)
 
-reg = linear_model.LinearRegression()
-reg.fit(features_train, target_train)
-
-print('Coefficients: \n', reg.coef_)  
-
-target_test_predicted = reg.predict(features_test)
-
-#sns.distplot(np.sqrt((target_test_predicted-target_test)**2),kde=False, bins=100)
-# plt.figure(1)
-# sns.regplot(features_test,target_test)
-# sns.regplot(features_train,target_train)
-# plt.show()
-
-plt.figure(2)
-sns.distplot(((target_test_predicted-target_test)),kde=False, bins=100)
-#plt.yscale("log")
-plt.show()
