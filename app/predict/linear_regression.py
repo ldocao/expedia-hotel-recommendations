@@ -6,11 +6,13 @@ from sklearn.cross_validation import train_test_split
 from math import sqrt
 import ipdb
 import numpy as np
+import random
 
 
 # Load Database
 df=pd.read_csv("train_target.csv").dropna()
 
+#features=df[["srch_adults_cnt"]]
 
 features=df[["orig_destination_distance", #variable to normalize
 				"srch_adults_cnt",
@@ -35,6 +37,12 @@ print('Coefficients: \n', reg.coef_)
 target_test_predicted = reg.predict(features_test)
 
 #sns.distplot(np.sqrt((target_test_predicted-target_test)**2),kde=False, bins=100)
+# plt.figure(1)
+# sns.regplot(features_test,target_test)
+# sns.regplot(features_train,target_train)
+# plt.show()
+
+plt.figure(2)
 sns.distplot(((target_test_predicted-target_test)),kde=False, bins=100)
 #plt.yscale("log")
 plt.show()
